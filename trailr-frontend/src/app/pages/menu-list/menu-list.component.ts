@@ -84,4 +84,28 @@ export class MenuListComponent implements OnInit {
       }
     });
   }
+  /*
+  Deletes a menu item after confirming the user's action.
+  This supports database delete functionality from the GUI.
+  */
+  deleteMenuItem(id: number | undefined): void {
+    if (!id) {
+      return;
+    }
+
+    const confirmed = confirm('Are you sure you want to delete this menu item?');
+
+    if (confirmed) {
+      this.menuItemService.deleteMenuItem(id).subscribe({
+        next: () => {
+          this.loadMenuItems();
+        },
+        error: (error) => {
+          console.error('Error deleting menu item:', error);
+          this.errorMessage = 'Unable to delete menu item.';
+        }
+      });
+    }
+  }
 }
+

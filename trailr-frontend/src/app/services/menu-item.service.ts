@@ -30,5 +30,9 @@ export class MenuItemService {
     return this.http.post<MenuItem>(this.apiUrl, menuItem);
   }
 
+  // Deletes a menu item from the database by ID.
+  deleteMenuItem(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 
 }

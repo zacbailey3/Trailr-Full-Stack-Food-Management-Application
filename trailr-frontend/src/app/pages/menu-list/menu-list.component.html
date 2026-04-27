@@ -48,6 +48,7 @@
     <th>Category</th>
     <th>Price</th>
     <th>Available</th>
+    <th>Actions</th>
   </tr>
   </thead>
 
@@ -58,6 +59,12 @@
     <td>{{ item.category }}</td>
     <td>{{ item.price }}</td>
     <td>{{ item.available ? 'Yes' : 'No' }}</td>
+
+    <td>
+      <button type="button" (click)="deleteMenuItem(item.id)">
+        Delete
+      </button>
+    </td>
   </tr>
   </tbody>
 </table>
