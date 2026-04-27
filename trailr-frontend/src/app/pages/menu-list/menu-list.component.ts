@@ -24,6 +24,7 @@ export class MenuListComponent implements OnInit {
 
   errorMessage = '';
   searchTerm = '';
+  editingItemId: number | null = null;
 
   constructor(private menuItemService: MenuItemService) {}
 
@@ -49,7 +50,7 @@ export class MenuListComponent implements OnInit {
   /*
 Searches menu items using partial text matches.
 This supports searchable multi-row results.
-*/
+ */
   searchMenuItems(): void {
 
     if (!this.searchTerm.trim()) {
@@ -68,10 +69,25 @@ This supports searchable multi-row results.
   }
 
   /*
-   Validates the form before sending data to the backend.
-   This helps prevent incomplete or invalid menu items from being saved.
-  */
+ Loads an existing menu item into the form for editing.
+ */
+  editMenuItem(item: MenuItem): void {
+
+    this.editingItemId = item.id ?? null;
+
+    this.newMenuItem = {
+      itemName: item.itemName,
+      price: item.price,
+      category: item.category,
+      available: item.available
+    };
+  }
+
+  /*
+  Validates form data before creating or updating menu items.
+ */
   addMenuItem(): void {
+
     this.errorMessage = '';
 
     if (!this.newMenuItem.itemName.trim()) {
@@ -89,23 +105,58 @@ This supports searchable multi-row results.
       return;
     }
 
-    this.menuItemService.createMenuItem(this.newMenuItem).subscribe({
-      next: () => {
-        this.loadMenuItems();
+    // Update existing item
+    if (this.editingItemId !== null) {
 
-        this.newMenuItem = {
-          itemName: '',
-          price: 0,
-          category: '',
-          available: true
-        };
-      },
-      error: (error) => {
-        console.error('Error creating menu item:', error);
-        this.errorMessage = 'Unable to create menu item.';
-      }
-    });
+      this.menuItemService
+        .updateMenuItem(this.editingItemId, this.newMenuItem)
+        .subscribe({
+
+          next: () => {
+            this.resetForm();
+            this.loadMenuItems();
+          },
+
+          error: (error) => {
+            console.error('Error updating menu item:', error);
+            this.errorMessage = 'Unable to update menu item.';
+          }
+        });
+    }
+
+    // Create new item
+    else {
+
+      this.menuItemService.createMenuItem(this.newMenuItem).subscribe({
+
+        next: () => {
+          this.resetForm();
+          this.loadMenuItems();
+        },
+
+        error: (error) => {
+          console.error('Error creating menu item:', error);
+          this.errorMessage = 'Unable to create menu item.';
+        }
+      });
+    }
   }
+
+  /*
+ Resets the form after create or update operations.
+  */
+  resetForm(): void {
+
+    this.newMenuItem = {
+      itemName: '',
+      price: 0,
+      category: '',
+      available: true
+    };
+
+    this.editingItemId = null;
+  }
+
   /*
   Deletes a menu item after confirming the user's action.
   This supports database delete functionality from the GUI.

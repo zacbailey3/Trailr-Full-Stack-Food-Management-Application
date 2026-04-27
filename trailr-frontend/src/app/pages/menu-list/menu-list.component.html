@@ -78,6 +78,9 @@
     <td>{{ item.available ? 'Yes' : 'No' }}</td>
 
     <td>
+      <button type="button" (click)="editMenuItem(item)">
+        Edit
+      </button>
       <button type="button" (click)="deleteMenuItem(item.id)">
         Delete
       </button>
