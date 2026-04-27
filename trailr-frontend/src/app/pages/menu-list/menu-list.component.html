@@ -1,0 +1,63 @@
+<h2>Trailr Menu Items</h2>
+
+<h3>Add Menu Item</h3>
+
+<form (ngSubmit)="addMenuItem()">
+
+  <label>
+    Item Name:
+    <input type="text" name="itemName" [(ngModel)]="newMenuItem.itemName">
+  </label>
+
+  <br><br>
+
+  <label>
+    Category:
+    <input type="text" name="category" [(ngModel)]="newMenuItem.category">
+  </label>
+
+  <br><br>
+
+  <label>
+    Price:
+    <input type="number" name="price" [(ngModel)]="newMenuItem.price">
+  </label>
+
+  <br><br>
+
+  <label>
+    Available:
+    <input type="checkbox" name="available" [(ngModel)]="newMenuItem.available">
+  </label>
+
+  <br><br>
+
+  <button type="submit">Add Menu Item</button>
+
+</form>
+
+<p style="color: red;" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<hr>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Item Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Available</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let item of menuItems">
+    <td>{{ item.id }}</td>
+    <td>{{ item.itemName }}</td>
+    <td>{{ item.category }}</td>
+    <td>{{ item.price }}</td>
+    <td>{{ item.available ? 'Yes' : 'No' }}</td>
+  </tr>
+  </tbody>
+</table>
