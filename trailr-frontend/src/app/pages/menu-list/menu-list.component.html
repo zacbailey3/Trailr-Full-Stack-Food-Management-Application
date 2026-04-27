@@ -40,6 +40,23 @@
 
 <hr>
 
+<h3>Search Menu Items</h3>
+
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  placeholder="Search by item name">
+
+<button type="button" (click)="searchMenuItems()">
+  Search
+</button>
+
+<button type="button" (click)="loadMenuItems()">
+  Reset
+</button>
+
+<hr>
+
 <table>
   <thead>
   <tr>

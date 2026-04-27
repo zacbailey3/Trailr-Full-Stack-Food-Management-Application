@@ -23,6 +23,7 @@ export class MenuListComponent implements OnInit {
   };
 
   errorMessage = '';
+  searchTerm = '';
 
   constructor(private menuItemService: MenuItemService) {}
 
@@ -41,6 +42,27 @@ export class MenuListComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error loading menu items:', error);
+      }
+    });
+  }
+
+  /*
+Searches menu items using partial text matches.
+This supports searchable multi-row results.
+*/
+  searchMenuItems(): void {
+
+    if (!this.searchTerm.trim()) {
+      this.loadMenuItems();
+      return;
+    }
+
+    this.menuItemService.searchMenuItems(this.searchTerm).subscribe({
+      next: (data) => {
+        this.menuItems = data;
+      },
+      error: (error) => {
+        console.error('Error searching menu items:', error);
       }
     });
   }

@@ -35,4 +35,12 @@ export class MenuItemService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+  // Searches menu items by partial name matches.
+  searchMenuItems(itemName: string): Observable<MenuItem[]> {
+    return this.http.get<MenuItem[]>(
+      `${this.apiUrl}/search?itemName=${itemName}`
+    );
+  }
+
+
 }
