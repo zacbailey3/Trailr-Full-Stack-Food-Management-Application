@@ -1,34 +1,30 @@
+<div class="container">
+
 <h2>Trailr Menu Items</h2>
 
 <h3>Add Menu Item</h3>
 
 <form (ngSubmit)="addMenuItem()">
 
-  <label>
-    Item Name:
+  <div class="form-group">
+    <label>Item Name:</label>
     <input type="text" name="itemName" [(ngModel)]="newMenuItem.itemName">
-  </label>
+  </div>
 
-  <br><br>
-
-  <label>
-    Category:
+  <div class="form-group">
+    <label>Category:</label>
     <input type="text" name="category" [(ngModel)]="newMenuItem.category">
-  </label>
+  </div>
 
-  <br><br>
-
-  <label>
-    Price:
+  <div class="form-group">
+    <label>Price:</label>
     <input type="number" name="price" [(ngModel)]="newMenuItem.price">
-  </label>
+  </div>
 
-  <br><br>
-
-  <label>
-    Available:
+  <div class="form-group">
+    <label>Available:</label>
     <input type="checkbox" name="available" [(ngModel)]="newMenuItem.available">
-  </label>
+  </div>
 
   <br><br>
 
@@ -88,3 +84,5 @@
   </tr>
   </tbody>
 </table>
+
+</div>
