@@ -1,0 +1,118 @@
+<div class="container">
+
+  <h2>Inventory Management</h2>
+
+  <h3>Search Inventory</h3>
+
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search inventory item">
+
+  <button type="button" (click)="searchInventoryItems()">
+    Search
+  </button>
+
+  <button type="button" (click)="loadInventoryItems()">
+    Reset
+  </button>
+
+  <hr>
+
+  <h3>
+    {{ editingItemId ? 'Edit Inventory Item' : 'Add Inventory Item' }}
+  </h3>
+
+  <div class="form-group">
+    <label>Item Name:</label>
+
+    <input
+      type="text"
+      [(ngModel)]="newInventoryItem.itemName">
+  </div>
+
+  <div class="form-group">
+    <label>Quantity:</label>
+
+    <input
+      type="number"
+      [(ngModel)]="newInventoryItem.quantity">
+  </div>
+
+  <div class="form-group">
+    <label>Unit:</label>
+
+    <input
+      type="text"
+      [(ngModel)]="newInventoryItem.unit">
+  </div>
+
+  <div class="form-group">
+    <label>Reorder Level:</label>
+
+    <input
+      type="number"
+      [(ngModel)]="newInventoryItem.reorderLevel">
+  </div>
+
+  <button type="button" (click)="saveInventoryItem()">
+    {{ editingItemId ? 'Update Item' : 'Add Item' }}
+  </button>
+
+  <p style="color: red;" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </p>
+
+  <hr>
+
+  <table>
+
+    <thead>
+
+    <tr>
+      <th>ID</th>
+      <th>Item Name</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th>Reorder Level</th>
+      <th>Low Stock</th>
+      <th>Actions</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr *ngFor="let item of inventoryItems">
+
+      <td>{{ item.id }}</td>
+      <td>{{ item.itemName }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.unit }}</td>
+      <td>{{ item.reorderLevel }}</td>
+
+      <td>
+        {{ item.quantity <= item.reorderLevel ? 'Yes' : 'No' }}
+      </td>
+
+      <td>
+
+        <button type="button"
+                (click)="editInventoryItem(item)">
+          Edit
+        </button>
+
+        <button type="button"
+                (click)="deleteInventoryItem(item.id)">
+          Delete
+        </button>
+
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
