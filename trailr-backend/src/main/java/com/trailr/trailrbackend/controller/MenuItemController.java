@@ -4,6 +4,7 @@ import com.trailr.trailrbackend.model.MenuItem;
 import com.trailr.trailrbackend.service.MenuItemService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
