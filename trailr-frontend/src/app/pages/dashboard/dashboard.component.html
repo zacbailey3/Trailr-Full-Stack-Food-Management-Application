@@ -1,1 +1,30 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+
+  <h2>Trailr Dashboard</h2>
+  <p class="subtitle">Food truck menu management overview</p>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>Total Menu Items</h3>
+      <p>{{ totalItems }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Available Items</h3>
+      <p>{{ availableItems }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Unavailable Items</h3>
+      <p>{{ unavailableItems }}</p>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <a routerLink="/menu">Manage Menu Items</a>
+    <a routerLink="/reports">View Menu Report</a>
+  </div>
+
+</div>
