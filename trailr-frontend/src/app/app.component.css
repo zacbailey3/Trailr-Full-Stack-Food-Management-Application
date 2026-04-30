@@ -2,13 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333;
+  background: #2f4858;
   color: white;
-  padding: 12px 30px;
+  padding: 14px 35px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .navbar h1 {
   margin: 0;
+  letter-spacing: 1px;
 }
 
 .navbar a {
@@ -20,4 +22,13 @@
 
 .navbar a:hover {
   text-decoration: underline;
+}
+
+.navbar button {
+  margin-left: 20px;
+  background: #d9534f;
+}
+
+.navbar button:hover {
+  background: #b83f3b;
 }

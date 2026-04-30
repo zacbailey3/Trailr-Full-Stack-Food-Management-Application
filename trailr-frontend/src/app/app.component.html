@@ -3,16 +3,12 @@
   <h1>Trailr</h1>
 
   <div *ngIf="authService.isLoggedIn()">
-
     <a routerLink="">Dashboard</a>
     <a routerLink="menu">Menu Items</a>
     <a routerLink="inventory">Inventory</a>
     <a routerLink="reports">Reports</a>
 
-    <button (click)="logout()">
-      Logout
-    </button>
-
+    <button (click)="logout()">Logout</button>
   </div>
 
 </nav>
