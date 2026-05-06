@@ -92,7 +92,14 @@
       <td>{{ item.reorderLevel }}</td>
 
       <td>
-        {{ item.quantity <= item.reorderLevel ? 'Yes' : 'No' }}
+
+        <span
+          [style.color]="item.quantity <= item.reorderLevel ? 'red' : 'green'"
+          [style.fontWeight]="'bold'">
+
+          {{ item.quantity <= item.reorderLevel ? 'Low' : 'Good' }}
+        </span>
+
       </td>
 
       <td>
