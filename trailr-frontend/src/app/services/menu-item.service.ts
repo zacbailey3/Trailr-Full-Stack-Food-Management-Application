@@ -16,6 +16,7 @@ export interface MenuItem {
 })
 export class MenuItemService {
 
+//udpated for deployment
   private apiUrl = 'https://trailr-backend.up.railway.app/api/menu-items';
 
   constructor(private http: HttpClient) { }

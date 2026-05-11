@@ -15,6 +15,7 @@ export interface InventoryItem {
 })
 export class InventoryItemService {
 
+//udpated for deployment
   private apiUrl = 'https://trailr-backend.up.railway.app/api/inventory';
 
   constructor(private http: HttpClient) {}

@@ -13,6 +13,7 @@ export interface MenuReport {
 })
 export class ReportService {
 
+  //udpated for deployment
   private apiUrl = 'https://trailr-backend.up.railway.app/api/reports';
 
   constructor(private http: HttpClient) {}
