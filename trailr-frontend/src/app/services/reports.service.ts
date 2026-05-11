@@ -13,7 +13,7 @@ export interface MenuReport {
 })
 export class ReportService {
 
-  private apiUrl = 'http://localhost:8080/api/reports';
+  private apiUrl = 'https://trailr-backend.up.railway.app/api/reports';
 
   constructor(private http: HttpClient) {}
 
