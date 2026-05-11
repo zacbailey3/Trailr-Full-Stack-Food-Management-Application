@@ -14,7 +14,10 @@ import java.util.List;
 */
 @RestController
 @RequestMapping("/api/menu-items")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {
+        "http://localhost:4200",
+        "https://trailr-app.up.railway.app"
+})
 public class MenuItemController {
 
     private final MenuItemService menuItemService;

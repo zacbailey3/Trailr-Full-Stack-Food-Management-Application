@@ -13,7 +13,10 @@ import java.util.List;
 */
 @RestController
 @RequestMapping("/api/inventory")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {
+        "http://localhost:4200",
+        "https://trailr-app.up.railway.app"
+})
 public class InventoryItemController {
 
     private final InventoryItemService inventoryItemService;
