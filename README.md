@@ -1,49 +1,13 @@
-Trailr – Food Truck Management System
+# Trailr - Full-Stack Food Management Application
 
-Trailr is a full-stack food truck management application developed as part of the WGU D424 Software Engineering Capstone. The application was designed to help food truck operators manage menu items, inventory, reporting, and dashboard analytics through a browser-based interface.
+Trailr is a full-stack food truck management application built with Angular, TypeScript, Java, Spring Boot, MySQL, and REST APIs. It helps food truck operators manage menu items, inventory records, reports, and dashboard data through a browser-based interface.
 
-The project follows a layered full-stack architecture using Angular for the frontend, Spring Boot for the backend REST API, and MySQL for database persistence. The application supports CRUD functionality, search capabilities, authentication, reporting, and dashboard metrics.
+The application includes CRUD workflows, search functionality, low-stock inventory tracking, report generation, login-based route protection, and Railway deployment.
 
-Features
-User authentication and protected routes
-Menu item management (Create, Read, Update, Delete)
-Inventory management with low-stock tracking
-Search functionality for menu and inventory records
-Dashboard analytics and reporting
-REST API integration
-MySQL database persistence
-Cloud deployment using Railway
-Technologies Used
+## Highlights
 
-Frontend
-
-Angular
-TypeScript
-HTML / CSS
-
-Backend
-
-Spring Boot
-Java
-Spring Data JPA
-
-Database
-
-MySQL
-
-Tools & Deployment
-
-Railway
-Postman
-GitLab / GitHub
-IntelliJ IDEA
-Visual Studio Code
-Project Purpose
-
-This project demonstrates full-stack software engineering concepts including frontend/backend integration, REST API development, database persistence, authentication, layered architecture, deployment, and software testing.
-
-Deployment
-
-Frontend: https://trailr-app.up.railway.app
-
-Backend API: https://trailr-backend.up.railway.app
+- Built full-stack CRUD workflows with Angular and Spring Boot
+- Designed REST endpoints for menu, inventory, search, and reporting
+- Integrated MySQL persistence using Spring Data JPA
+- Added low-stock logic based on inventory reorder thresholds
+- Deployed frontend and backend services with Railway
